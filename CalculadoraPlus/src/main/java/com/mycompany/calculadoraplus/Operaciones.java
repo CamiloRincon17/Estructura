@@ -66,4 +66,10 @@ public class Operaciones {
         
         return resultado;
     }
+    public static double calcularLog(double a, double b){
+       double suma= a + b;
+
+        
+    return Math.log10(suma);
+    }
 }

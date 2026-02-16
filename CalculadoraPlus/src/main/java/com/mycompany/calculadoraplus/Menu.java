@@ -43,6 +43,7 @@ public class Menu extends javax.swing.JFrame {
         potencia = new javax.swing.JButton();
         sen = new javax.swing.JButton();
         cos = new javax.swing.JButton();
+        log = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +129,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        log.setText("Log");
+        log.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,7 +178,9 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(sen)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cos)))
+                        .addComponent(cos)
+                        .addGap(18, 18, 18)
+                        .addComponent(log)))
                 .addContainerGap(328, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -199,9 +209,11 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(borrarTodo)
                     .addComponent(potencia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sen)
-                    .addComponent(cos))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cos)
+                        .addComponent(log)))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -225,6 +237,13 @@ public class Menu extends javax.swing.JFrame {
             double res = Operaciones.calcularCos(numA, numB);
             resultado.setText("Resultado: " + res + " (sen(" + numA + " + " + numB + "))");
     }//GEN-LAST:event_cosActionPerformed
+
+    private void logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logActionPerformed
+            double numA = Double.parseDouble(a.getText());
+            double numB = Double.parseDouble(b.getText());
+            double res = Operaciones.calcularLog(numA, numB);
+            resultado.setText("Resultado: " + res + " (Log(" + numA + " + " + numB + "))");
+    }//GEN-LAST:event_logActionPerformed
 
     private void raizActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_raizActionPerformed
         try {
@@ -365,6 +384,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton divicion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton log;
     private javax.swing.JButton multiplicacion;
     private javax.swing.JButton porcentaje;
     private javax.swing.JButton potencia;
