@@ -32,6 +32,7 @@ public class Menu extends javax.swing.JFrame {
         columnas = new javax.swing.JTextField();
         crearMatriz = new javax.swing.JButton();
         consultarMatriz = new javax.swing.JButton();
+        addCandidate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,6 +43,12 @@ public class Menu extends javax.swing.JFrame {
         filas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 filasKeyTyped(evt);
+            }
+        });
+
+        columnas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                columnasActionPerformed(evt);
             }
         });
 
@@ -59,6 +66,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        addCandidate.setText("Agregar candidato");
+        addCandidate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCandidateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,13 +87,15 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(filas, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                            .addComponent(columnas)))
+                            .addComponent(columnas))
+                        .addGap(18, 18, 18)
+                        .addComponent(addCandidate))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(crearMatriz)
                         .addGap(66, 66, 66)
                         .addComponent(consultarMatriz)))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,7 +103,8 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(filas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(filas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addCandidate))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -96,19 +113,19 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(crearMatriz)
                     .addComponent(consultarMatriz))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearMatrizActionPerformed
-    matriz.crearMatriz(Integer.parseInt(filas.getText()), Integer.parseInt(columnas.getText()));
-        
+        matriz.crearMatriz(Integer.parseInt(filas.getText()), Integer.parseInt(columnas.getText()));
+
     }//GEN-LAST:event_crearMatrizActionPerformed
 
     private void consultarMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarMatrizActionPerformed
-       matriz.consultarMatriz();
+        matriz.consultarMatriz();
     }//GEN-LAST:event_consultarMatrizActionPerformed
 
     private void filasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filasKeyTyped
@@ -117,6 +134,14 @@ public class Menu extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_filasKeyTyped
+
+    private void columnasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_columnasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_columnasActionPerformed
+
+    private void addCandidateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCandidateActionPerformed
+        matriz.agregarCandidato();
+    }// GEN-LAST:event_addCandidateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,6 +179,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addCandidate;
     private javax.swing.JTextField columnas;
     private javax.swing.JButton consultarMatriz;
     private javax.swing.JButton crearMatriz;
