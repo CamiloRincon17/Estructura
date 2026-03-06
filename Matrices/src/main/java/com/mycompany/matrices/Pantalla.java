@@ -4,6 +4,8 @@
  */
 package com.mycompany.matrices;
 
+import javax.swing.JOptionPane;
+
 public class Pantalla extends javax.swing.JFrame {
 
     Matrices matris = new Matrices();
@@ -260,6 +262,7 @@ public class Pantalla extends javax.swing.JFrame {
     }// GEN-LAST:event_fKeyTyped
 
     private void nombresActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_nombresActionPerformed
+        
         matris.crearCandidatos(Integer.parseInt(f.getText()));
 
     }// GEN-LAST:event_nombresActionPerformed
@@ -275,6 +278,7 @@ public class Pantalla extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+    
         /* Set the Nimbus look and feel */
         // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
         // (optional) ">
@@ -284,28 +288,17 @@ public class Pantalla extends javax.swing.JFrame {
          * For details see
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pantalla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pantalla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pantalla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pantalla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        // </editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pantalla().setVisible(true);
+                String clave = JOptionPane.showInputDialog("Ingrese la contraseña:");
+                if (clave.equals("1234")) {
+                    new Pantalla().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+                }
             }
         });
     }
