@@ -44,6 +44,12 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel2.setText("Edad");
 
+        edad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edadActionPerformed(evt);
+            }
+        });
+
         crearInicio.setText("Crear al inicio");
         crearInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +153,10 @@ public class Menu extends javax.swing.JFrame {
             objlista.insertarDespues(edadRef, Integer.parseInt(edad.getText()), nombre.getText());
         }
     }//GEN-LAST:event_insertarDespuesActionPerformed
+
+    private void edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edadActionPerformed
 
     private void crearInicioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_crearInicioActionPerformed
 
