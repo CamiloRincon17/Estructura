@@ -4,11 +4,14 @@
  */
 package com.mycompany.listacircular;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SCIS2-30
  */
 public class menu extends javax.swing.JFrame {
+
     ListaCircular objetoLista = new ListaCircular();
 
     /**
@@ -32,10 +35,12 @@ public class menu extends javax.swing.JFrame {
         valor = new javax.swing.JTextField();
         consultar = new javax.swing.JButton();
         PrimeroYUltimo = new javax.swing.JButton();
+        agregarFinal = new javax.swing.JButton();
+        addAfter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        listacircular.setText("oprime");
+        listacircular.setText("Crear Lista");
         listacircular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listacircularActionPerformed(evt);
@@ -50,7 +55,7 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
-        consultar.setText("Cunsultar");
+        consultar.setText("Consultar");
         consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultarActionPerformed(evt);
@@ -64,48 +69,63 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
+        agregarFinal.setText("Crear Al Final");
+        agregarFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarFinalActionPerformed(evt);
+            }
+        });
+
+        addAfter.setText("Agregar despues de");
+        addAfter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAfterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(57, 57, 57)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(listacircular)
-                        .addGap(28, 28, 28)
-                        .addComponent(consultar)))
-                .addGap(119, 119, 119))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(PrimeroYUltimo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addAfter)
+                    .addComponent(agregarFinal)
+                    .addComponent(PrimeroYUltimo)
+                    .addComponent(listacircular)
+                    .addComponent(consultar))
+                .addGap(277, 277, 277))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(listacircular)
-                    .addComponent(consultar))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listacircular))
                 .addGap(18, 18, 18)
+                .addComponent(consultar)
+                .addGap(21, 21, 21)
                 .addComponent(PrimeroYUltimo)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(agregarFinal)
+                .addGap(18, 18, 18)
+                .addComponent(addAfter)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void listacircularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listacircularActionPerformed
-      objetoLista.crearLista(Integer.parseInt(valor.getText()));
-        // TODO add your handling code here:
+        objetoLista.crearLista(Integer.parseInt(valor.getText()));
+        valor.setText(""); // Limpia el campo automáticamente
     }//GEN-LAST:event_listacircularActionPerformed
 
     private void valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorActionPerformed
@@ -113,14 +133,34 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_valorActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-    objetoLista.consultar();
+        objetoLista.consultar();
         // TODO add your handling code here:
     }//GEN-LAST:event_consultarActionPerformed
 
     private void PrimeroYUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrimeroYUltimoActionPerformed
-objetoLista.mostrarPrimeroYUltimo();
+        objetoLista.mostrarPrimeroYUltimo();
         // TODO add your handling code here:
     }//GEN-LAST:event_PrimeroYUltimoActionPerformed
+
+    private void agregarFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarFinalActionPerformed
+        objetoLista.AgregarAlFinal(Integer.parseInt(valor.getText())); 
+        valor.setText("");
+    }//GEN-LAST:event_agregarFinalActionPerformed
+
+    private void addAfterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAfterActionPerformed
+        String textoValor = valor.getText();
+        if (textoValor == null || textoValor.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Primero escribe el valor a insertar en el campo de texto.");
+            return;
+        }
+        String valorDeseadoStr = JOptionPane.showInputDialog("¿Después de qué valor desea insertar el " + textoValor + "?"+"\nLista actual:\n" + objetoLista.mostrarLista());
+        if (valorDeseadoStr != null && !valorDeseadoStr.isEmpty()) {
+            objetoLista.AgregarDespuesDe(Integer.parseInt(textoValor), Integer.parseInt(valorDeseadoStr));
+            valor.setText("");
+            // Mostrar cómo quedaron los nodos
+            JOptionPane.showMessageDialog(null, "Lista actual:\n" + objetoLista.mostrarLista());
+        }
+    }//GEN-LAST:event_addAfterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,6 +199,8 @@ objetoLista.mostrarPrimeroYUltimo();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PrimeroYUltimo;
+    private javax.swing.JButton addAfter;
+    private javax.swing.JButton agregarFinal;
     private javax.swing.JButton consultar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton listacircular;
