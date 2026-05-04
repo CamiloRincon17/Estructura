@@ -160,17 +160,17 @@ public class SistemaFila {
     public synchronized String ejecutarTick() {
         StringBuilder sb = new StringBuilder();
 
-        // 1. Llegan 1–3 usuarios nuevos
-        int nuevos = 1 + (int)(Math.random() * 3);
+        // 1. Llegan 1–2 usuarios nuevos
+        int nuevos = 1 + (int)(Math.random() * 2);
         sb.append("✚ Nuevos: ");
         for (int i = 0; i < nuevos; i++) {
             int id = insertarUsuario();
             sb.append(id).append(" ");
         }
 
-        // 2. El primer usuario en atención compra con prob. 40%
+        // 2. El primer usuario en atención compra con prob. 20%
         NodoDoble primero = filaPrincipal.getCabeza();
-        if (primero != null && Math.random() < 0.40) {
+        if (primero != null && Math.random() < 0.20) {
             int id = primero.getIdUsuario();
             procesarCompra(id);
             sb.append("| ✔ Compra: ").append(id).append(" ");
